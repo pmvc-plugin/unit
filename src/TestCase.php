@@ -8,7 +8,7 @@ namespace {
         class PHPUnit_Framework_Error extends Exception
         {
             public function __construct($message = "" , $code = 0 , $previous = null, $line = null) {
-                parent::__construct($message, $code, $previous);
+                parent::__construct($message, $code);
             }
         }
     }
