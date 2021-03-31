@@ -18,4 +18,8 @@ class TestCasePHPVersion extends PHPUnit_Framework_TestCase
             $this->pmvc_teardown();
         }
     }
+    public function testNone()
+    {
+        $this->assertFalse(false);
+    }
 }
