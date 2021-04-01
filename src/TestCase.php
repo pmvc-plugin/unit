@@ -7,7 +7,12 @@ namespace {
         }
         class PHPUnit_Framework_Error extends Exception
         {
-            public function __construct($message = "" , $code = 0 , $previous = null, $line = null) {
+            public function __construct(
+                $message = '',
+                $code = 0,
+                $file = null,
+                $line = null
+            ) {
                 parent::__construct($message, $code);
             }
         }
@@ -22,6 +27,19 @@ namespace PMVC {
     } else {
         l(__DIR__ . '/TestCase-5');
     }
+
+    class PMVCUnitException extends \Exception
+    {
+        public function __construct(
+            $message = '',
+            $code = 0,
+            $file = null,
+            $line = null
+        ) {
+            parent::__construct($message, $code);
+        }
+    }
+
     class TestCase extends TestCasePHPVersion
     {
         public function haveString($needle, $haystack)
