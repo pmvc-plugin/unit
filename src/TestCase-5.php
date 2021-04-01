@@ -25,11 +25,11 @@ class TestCasePHPVersion extends PHPUnit_Framework_TestCase
         $this->assertFalse(false);
     }
 
-    public function expectException()
+    public function expectException($exception)
     {
     }
 
-    public function expectExceptionMessage()
+    public function expectExceptionMessage($message)
     {
     }
 }
