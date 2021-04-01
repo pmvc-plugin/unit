@@ -12,14 +12,24 @@ class TestCasePHPVersion extends PHPUnit_Framework_TestCase
             $this->pmvc_setup();
         }
     }
+
     protected function teardown()
     {
         if (is_callable([$this, 'pmvc_teardown'])) {
             $this->pmvc_teardown();
         }
     }
+
     public function testNone()
     {
         $this->assertFalse(false);
+    }
+
+    public function expectException()
+    {
+    }
+
+    public function expectExceptionMessage()
+    {
     }
 }

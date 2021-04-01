@@ -42,7 +42,7 @@ namespace PMVC {
 
     class TestCase extends TestCasePHPVersion
     {
-        public function haveString($needle, $haystack)
+        protected function haveString($needle, $haystack)
         {
             if (is_callable([$this, 'assertStringContainsString'])) {
                 $this->assertStringContainsString($needle, $haystack);
@@ -50,6 +50,7 @@ namespace PMVC {
                 $this->assertContains($needle, $haystack);
             }
         }
+
         public function testNone()
         {
             $this->assertFalse(false);
