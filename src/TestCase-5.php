@@ -27,9 +27,15 @@ class TestCasePHPVersion extends PHPUnit_Framework_TestCase
 
     public function expectException($exception)
     {
+        if (is_callable('parent::expectException')) {
+          parent::expectException($exception);
+        }
     }
 
     public function expectExceptionMessage($message)
     {
+        if (is_callable('parent::expectExceptionMessage')) {
+          parent::expectExceptionMessage($message);
+        }
     }
 }
