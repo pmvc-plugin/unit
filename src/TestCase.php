@@ -51,7 +51,7 @@ namespace PMVC {
             }
         }
 
-        protected function throw($willThrow, $error = true)
+        protected function willThrow($willThrow, $error = true)
         {
             $traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
             $func = $traces[1]['function'];
