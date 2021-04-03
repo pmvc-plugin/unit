@@ -7,6 +7,9 @@
 A simple phpunit wrapper let it support phpunt 4.8.35, 6.5.5, 9.5.0
 ===============
 
+## In another word.
+You could use is cross php version 5.5 -> 8.x
+
 ## Install with Composer
 ### 1. Download composer
    * mkdir test_folder
