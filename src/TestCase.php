@@ -51,6 +51,18 @@ namespace PMVC {
             }
         }
 
+        protected function throw($willThrow, $error = true)
+        {
+            $traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+            $func = $traces[1]['function'];
+            \PMVC\plug('unit')->throw(
+                $willThrow,
+                [$this, $func],
+                $this,
+                $error
+            );
+        }
+
         public function testNone()
         {
             $this->assertFalse(false);
