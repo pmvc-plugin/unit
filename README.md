@@ -4,7 +4,7 @@
 [![License](https://poser.pugx.org/pmvc-plugin/unit/license)](https://packagist.org/packages/pmvc-plugin/unit)
 [![Total Downloads](https://poser.pugx.org/pmvc-plugin/unit/downloads)](https://packagist.org/packages/pmvc-plugin/unit) 
 
-unit
+A simple phpunit wrapper let it support phpunt 4.8.35, 6.5.5, 9.5.0
 ===============
 
 ## Install with Composer
