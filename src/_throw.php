@@ -26,7 +26,10 @@ class WrapThrow
             try {
                 $willThrow();
             } catch (Exception $e) {
-                throw new PMVCUnitException($e->getMessage(), 0);
+                if (is_bool($error)) {
+                    $error = 'PMVC\PMVCUnitException';
+                }
+                throw new $error($e->getMessage(), 0);
             }
         }
     }
