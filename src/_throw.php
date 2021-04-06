@@ -11,7 +11,7 @@ class WrapThrow
     public function __invoke($willThrow, $caller, $phpunit, $error = true)
     {
         $annotation = \PMVC\plug('annotation');
-        $doc = $annotation->get($caller);
+        $doc = $annotation->get($caller, true);
         $expectedException = get($doc, 'expectedException');
         $expectedExceptionMessage = get($doc, 'expectedExceptionMessage');
         if (!empty($expectedException)) {
