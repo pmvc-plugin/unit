@@ -67,10 +67,5 @@ namespace PMVC {
                 $error
             );
         }
-
-        public function testNone()
-        {
-            $this->assertFalse(false);
-        }
     }
 }
