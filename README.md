@@ -20,6 +20,19 @@ assertContains            | haveString
 assertStringContainsString| haveString
 
 
+## tests/include.php example
+```php
+<?php
+
+$path = __DIR__ . '/../vendor/autoload.php';
+include $path;
+
+\PMVC\Load::plug(
+    ['unit' => null],
+    [__DIR__ . '/../../']
+);
+```
+
 
 ## Install with Composer
 ### 1. Download composer
@@ -29,7 +42,7 @@ assertStringContainsString| haveString
 ### 2. Install by composer.json or use command-line directly
 #### 2.1 Install by composer.json
    * vim composer.json
-```
+```json
 {
     "require": {
         "pmvc-plugin/unit": "dev-master"
