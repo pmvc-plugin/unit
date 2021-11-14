@@ -8,9 +8,7 @@ class TestCasePHPVersion extends PHPUnit_Framework_TestCase
 {
     protected function setup()
     {
-        if (is_callable([$this, 'pmvc_setup'])) {
-            $this->pmvc_setup();
-        }
+        $this->altSetup();
     }
 
     protected function teardown()
@@ -28,14 +26,14 @@ class TestCasePHPVersion extends PHPUnit_Framework_TestCase
     public function expectException($exception)
     {
         if (is_callable('parent::expectException')) {
-          parent::expectException($exception);
+            parent::expectException($exception);
         }
     }
 
     public function expectExceptionMessage($message)
     {
         if (is_callable('parent::expectExceptionMessage')) {
-          parent::expectExceptionMessage($message);
+            parent::expectExceptionMessage($message);
         }
     }
 }

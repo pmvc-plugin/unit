@@ -47,6 +47,36 @@ namespace PMVC {
 
     class TestCase extends TestCasePHPVersion
     {
+        protected $call_construct;
+
+        public function __construct()
+        {
+            $this->call_construct = true;
+            $args = func_get_args();
+            return call_user_func_array('parent::__construct', $args);
+        }
+
+        protected function altSetup()
+        {
+            if (!$this->call_construct) {
+                echo <<<EOF
+
+### !!important ###
+#
+# You should not overwrite testcase __construct, 
+# else will get error such as
+# "TypeError: array_merge( ..." etc.
+# Use pmvc_setup instead. 
+#
+### !!important ###
+
+EOF;
+            }
+            if (is_callable([$this, 'pmvc_setup'])) {
+                $this->pmvc_setup();
+            }
+        }
+
         protected function haveString($needle, $haystack)
         {
             if (is_callable([$this, 'assertStringContainsString'])) {

@@ -9,7 +9,7 @@ class CallPrivateTest extends TestCase
     public function testCallPrivate()
     {
         $p = \PMVC\plug($this->_plug);    
-        $result = $p->callPrivate(
+        $result = $p->call_private(
             __NAMESPACE__.'\FakePrivate', '_iAmPrivate'
         );
         $this->assertEquals('call me', $result);
@@ -19,7 +19,7 @@ class CallPrivateTest extends TestCase
     {
         $fake = new FakePrivate('foo');
         $p = \PMVC\plug($this->_plug);    
-        $result = $p->callPrivate(
+        $result = $p->call_private(
             __NAMESPACE__.'\FakePrivate', '_returnPrivateP', null, $fake
         );
         $this->assertEquals('foo', $result);
@@ -28,7 +28,7 @@ class CallPrivateTest extends TestCase
     public function testWithArgs()
     {
         $p = \PMVC\plug($this->_plug);    
-        $result = $p->callPrivate(
+        $result = $p->call_private(
             __NAMESPACE__.'\FakePrivate', '_returnArgs', ['bar'] 
         );
         $this->assertEquals('bar', $result);
