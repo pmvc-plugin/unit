@@ -47,18 +47,15 @@ namespace PMVC {
 
     class TestCase extends TestCasePHPVersion
     {
-        protected $call_construct;
-
-        public function __construct()
-        {
-            $this->call_construct = true;
-            $args = func_get_args();
-            return call_user_func_array('parent::__construct', $args);
-        }
 
         protected function altSetup()
         {
-            if (!$this->call_construct) {
+            $annot = \PMVC\plug('annotation');
+            $doc = $annot->get([$this, '__construct']);
+            $docFile = $doc->getfile();
+            $isOverwriteConstruct = strpos($docFile, '/vendor/phpunit/');
+            if (false === $isOverwriteConstruct) {
+                $docLine = $doc->getStartLine();
                 echo <<<EOF
 
 ### !!important ###
@@ -67,6 +64,8 @@ namespace PMVC {
 # else will get error such as
 # "TypeError: array_merge( ..." etc.
 # Use pmvc_setup instead. 
+# Please check ${docFile}
+# Line: ${docLine}
 #
 ### !!important ###
 
