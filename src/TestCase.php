@@ -47,30 +47,52 @@ namespace PMVC {
 
     class TestCase extends TestCasePHPVersion
     {
+        private $_bInit;
 
-        protected function altSetup()
+        private function _overwriteConstructWarn()
         {
-            $annot = \PMVC\plug('annotation');
-            $doc = $annot->get([$this, '__construct']);
-            $docFile = $doc->getfile();
-            $isOverwriteConstruct = strpos($docFile, '/vendor/phpunit/');
-            if (false === $isOverwriteConstruct) {
-                $docLine = $doc->getStartLine();
-                echo <<<EOF
+            $pUnit = \PMVC\plug('unit');
+            if (!$pUnit['disableOverwriteConstructWarn']) {
+                $annot = \PMVC\plug('annotation');
+                $doc = $annot->get([$this, '__construct']);
+                $docFile = $doc->getfile();
+                $isOverwriteConstruct = strpos($docFile, '/vendor/phpunit/');
+                if (false === $isOverwriteConstruct) {
+                    $docLine = $doc->getStartLine();
+                    echo <<<EOF
 
 ### !!important ###
 #
 # You should not overwrite testcase __construct, 
 # else will get error such as
 # "TypeError: array_merge( ..." etc.
-# Use pmvc_setup instead. 
+# Use pmvc_init instead. 
 # Please check ${docFile}
 # Line: ${docLine}
 #
 ### !!important ###
 
 EOF;
+                }
             }
+        }
+
+        private function _init()
+        {
+            if ($this->_bInit) {
+                return;
+            } else {
+                $this->_bInit = true;
+            }
+            $this->_overwriteConstructWarn();
+            if (is_callable([$this, 'pmvc_init'])) {
+                $this->pmvc_init();
+            }
+        }
+
+        protected function altSetup()
+        {
+            $this->_init();
             if (is_callable([$this, 'pmvc_setup'])) {
                 $this->pmvc_setup();
             }
