@@ -14,6 +14,7 @@ You could use is cross php version 5.5 -> 8.x
 
 phpunit                   | PMVC/unit 
 --------------------------|----------
+__construct               | pmvc_init
 setup                     | pmvc_setup
 teardown                  | pmvc_teardown
 assertContains            | haveString

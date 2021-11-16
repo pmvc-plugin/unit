@@ -56,7 +56,7 @@ namespace PMVC {
                 $annot = \PMVC\plug('annotation');
                 $doc = $annot->get([$this, '__construct']);
                 $docFile = $doc->getfile();
-                $isOverwriteConstruct = strpos($docFile, '/vendor/phpunit/');
+                $isOverwriteConstruct = strpos($docFile, '/phpunit/');
                 if (false === $isOverwriteConstruct) {
                     $docLine = $doc->getStartLine();
                     echo <<<EOF
