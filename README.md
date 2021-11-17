@@ -36,7 +36,7 @@ include $path;
 );
 ```
 
-### Php code example
+### Php TestCase code example
 ```php
 <?php
 
