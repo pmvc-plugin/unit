@@ -21,7 +21,9 @@ assertContains            | haveString
 assertStringContainsString| haveString
 
 
-## tests/include.php example
+## Code example
+
+### tests/include.php example
 ```php
 <?php
 
@@ -33,6 +35,29 @@ include $path;
     [__DIR__ . '/../../']
 );
 ```
+
+### Php code example
+```php
+<?php
+
+namespace PMVC\PlugIn\hell_world;
+
+use PMVC\TestCase;
+
+class HelloWorldTest extends TestCase
+{
+
+}
+```
+
+### CI config example
+* Simple plugin
+   * https://github.com/pmvc/generator-php-pmvc-plugin/blob/master/generators/app/templates/_circleci/config.yml
+* More php version
+   * https://github.com/pmvc/pmvc/blob/master/.circleci/config.yml
+* Real CircleCI example
+   * https://app.circleci.com/pipelines/github/pmvc/pmvc?branch=master
+
 
 
 ## Install with Composer
