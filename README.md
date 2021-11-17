@@ -79,4 +79,6 @@ class HelloWorldTest extends TestCase
 
 #### 2.2 Or use composer command-line
    * php composer.phar require pmvc-plugin/unit
+   * or
+      * composer require pmvc-plugin/unit
 
