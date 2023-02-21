@@ -8,6 +8,8 @@ use ReflectionProperty;
 
 class SetPriateAttr
 {
+    public $caller;  
+
     public function __invoke($obj, $attrName, $newVal)
     {
         $prop = new ReflectionProperty($obj, $attrName);

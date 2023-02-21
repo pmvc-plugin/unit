@@ -3,7 +3,7 @@ namespace PMVC\PlugIn\unit;
 
 use PMVC\TestCase;
 
-class UnitTest extends TestCase
+class BasicTest extends TestCase
 {
     private $_plug = 'unit';
     function testPlugin()

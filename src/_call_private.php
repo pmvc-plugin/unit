@@ -8,6 +8,8 @@ ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__ . '\CallPrivate';
 
 class CallPrivate
 {
+    public $caller;
+
     public function __invoke($class, $methodName, $args = null, $obj = null)
     {
         if (is_null($obj)) {

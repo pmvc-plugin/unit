@@ -67,8 +67,8 @@ namespace PMVC {
 # else will get error such as
 # "TypeError: array_merge( ..." etc.
 # Use pmvc_init instead. 
-# Please check ${docFile}
-# Line: ${docLine}
+# Please check {$docFile}
+# Line: {$docLine}
 #
 ### !!important ###
 
