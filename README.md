@@ -58,6 +58,20 @@ class HelloWorldTest extends TestCase
 * Real CircleCI example
    * https://app.circleci.com/pipelines/github/pmvc/pmvc?branch=master
 
+## PHPUnit Tip
+* Show event
+```
+phpunit --log-events-text php://stdout
+```
+
+* show deprecations
+```
+phpunit --display-deprecations --testdox
+```
+
+* trigger PMVC dev dump
+   * https://github.com/pmvc-plugin/dev/blob/master/tests/DevWithPhpUnitTest.php
+
 
 
 ## Install with Composer
@@ -82,3 +96,5 @@ class HelloWorldTest extends TestCase
    * or
       * composer require pmvc-plugin/unit
 
+## Other Polyfills
+   * https://github.com/Yoast/PHPUnit-Polyfills

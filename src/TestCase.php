@@ -17,6 +17,22 @@ namespace {
             }
         }
     }
+    if (!class_exists('PHPUnit_Framework_MockObject_MockBuilder')) {
+        class PHPUnit_Framework_MockObject_MockBuilder
+        {
+            use \PMVC\Alias;
+            public $caller;
+            public function __construct(\PMVC\TestCase $testCase, string $type)
+            {
+                $this->setDefaultAlias(
+                    new \PHPUnit\Framework\MockObject\MockBuilder(
+                        $testCase,
+                        $type
+                    )
+                );
+            }
+        }
+    }
     if (!class_exists('TypeError')) {
         class TypeError extends Exception
         {
@@ -31,6 +47,19 @@ namespace PMVC {
         l(__DIR__ . '/TestCase-8');
     } else {
         l(__DIR__ . '/TestCase-5');
+    }
+
+    class PMVCMockBuilder extends \PHPUnit_Framework_MockObject_MockBuilder
+    {
+        use Alias;
+        public function pmvc_onlyMethods($methods)
+        {
+            if ($this->isCallable('onlyMethods')) {
+                return $this->onlyMethods($methods);
+            } else {
+                return $this->setMethods($methods);
+            }
+        }
     }
 
     class PMVCUnitException extends \Exception
@@ -88,6 +117,16 @@ EOF;
             if (is_callable([$this, 'pmvc_init'])) {
                 $this->pmvc_init();
             }
+        }
+
+        protected function getPMVCMockBuilder($className)
+        {
+            return new PMVCMockBuilder($this, $className);
+        }
+
+        protected function dump()
+        {
+            fwrite(STDERR, print_r(func_get_args(), true));
         }
 
         protected function altSetup()
