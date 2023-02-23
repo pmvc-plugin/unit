@@ -17,7 +17,13 @@ class WrapThrow
         $line = null,
         $context = null
     ) {
-        throw new Exception($message, $number);
+        /**
+         * https://www.php.net/manual/en/errorfunc.constants.php
+         * 256	E_USER_ERROR (int)
+         */
+        if ($number <= 256) {
+            throw new Exception($message, $number);
+        }
     }
 
     public function __invoke($willThrow, $caller, $phpunit, $error = true)

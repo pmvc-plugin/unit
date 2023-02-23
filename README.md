@@ -19,6 +19,10 @@ setup                     | pmvc_setup
 teardown                  | pmvc_teardown
 assertContains            | haveString
 assertStringContainsString| haveString
+assertStringContainsString| haveString
+getMockBuilder            | getPMVCMockBuilder
+setMethods                | pmvc_onlyMethods
+onlyMethods               | pmvc_onlyMethods
 
 
 ## Code example
