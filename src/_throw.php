@@ -23,7 +23,7 @@ class WrapThrow
          * 512	E_USER_WARNING (int)
          * 1024	E_USER_NOTICE (int)
          */
-        if ($number <= 1024) {
+        if ($number <= 1024 || $number === 4096) {
             throw new Exception($message, $number);
         }
     }
