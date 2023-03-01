@@ -20,8 +20,10 @@ class WrapThrow
         /**
          * https://www.php.net/manual/en/errorfunc.constants.php
          * 256	E_USER_ERROR (int)
+         * 512	E_USER_WARNING (int)
+         * 1024	E_USER_NOTICE (int)
          */
-        if ($number <= 256) {
+        if ($number <= 1024) {
             throw new Exception($message, $number);
         }
     }
