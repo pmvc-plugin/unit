@@ -77,7 +77,7 @@ phpunit --display-deprecations --testdox
    * extends TestCase
    * https://github.com/pmvc-plugin/unit/blob/main/src/TestCase.php#L127-L130
    ```php
-   $this->dump(/*anything*/);  //fwrite(STDERR, print_r(/*anything*/, true));
+   $this->dump(/*anything*/);  //fwrite(STDERR, print_r(?, true));
    ```
 
 
