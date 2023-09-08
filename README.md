@@ -77,8 +77,9 @@ phpunit --display-deprecations --testdox
    * extends TestCase
    * https://github.com/pmvc-plugin/unit/blob/main/src/TestCase.php#L127-L130
    ```php
-   $this->dump(/*anything*);
+   $this->dump(/*anything*/);  //fwrite(STDERR, print_r(/*anything*/, true));
    ```
+
 
 * trigger PMVC dev dump
    * https://github.com/pmvc-plugin/dev/blob/master/tests/DevWithPhpUnitTest.php
@@ -87,7 +88,7 @@ phpunit --display-deprecations --testdox
    * https://github.com/pmvc-plugin/dev#debug-with-cli
    ```php
    \PMVC\plug('dev')->debug_with_cli();
-   \PMVC\d(/*something*);
+   \PMVC\d(/*something*/);
    ```
 
 
