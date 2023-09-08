@@ -87,6 +87,7 @@ phpunit --display-deprecations --testdox
    * https://github.com/pmvc-plugin/dev#debug-with-cli
    ```php
    \PMVC\plug('dev')->debug_with_cli();
+   \PMVC\d(/*something*);
    ```
 
 
