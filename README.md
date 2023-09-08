@@ -76,7 +76,7 @@ phpunit --display-deprecations --testdox
 * output debug info
    * extends TestCase
    * https://github.com/pmvc-plugin/unit/blob/main/src/TestCase.php#L127-L130
-   ```
+   ```php
    $this->dump(/*anything*);
    ```
 
@@ -85,6 +85,9 @@ phpunit --display-deprecations --testdox
 
 * Further integration with the [dev] plugin.
    * https://github.com/pmvc-plugin/dev#debug-with-cli
+   ```php
+   \PMVC\plug('dev')->debug_with_cli();
+   ```
 
 
 ## Install with Composer
