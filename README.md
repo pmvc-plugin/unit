@@ -76,7 +76,7 @@ phpunit --display-deprecations --testdox
 * trigger PMVC dev dump
    * https://github.com/pmvc-plugin/dev/blob/master/tests/DevWithPhpUnitTest.php
 
-* Further integration with the [dev] plugin."
+* Further integration with the [dev] plugin.
    * https://github.com/pmvc-plugin/dev#debug-with-cli
 
 
