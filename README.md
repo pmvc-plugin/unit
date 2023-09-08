@@ -73,6 +73,13 @@ phpunit --log-events-text php://stdout
 phpunit --display-deprecations --testdox
 ```
 
+* output debug info
+   * extends TestCase
+   * https://github.com/pmvc-plugin/unit/blob/main/src/TestCase.php#L127-L130
+   ```
+   $this->dump(/*anything*);
+   ```
+
 * trigger PMVC dev dump
    * https://github.com/pmvc-plugin/dev/blob/master/tests/DevWithPhpUnitTest.php
 
