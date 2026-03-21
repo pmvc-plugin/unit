@@ -144,7 +144,7 @@ EOF;
             }
         }
 
-        protected function willThrow($willThrow, $error = true)
+        protected function willThrow($willThrow, $error = true, $expectedException = null, $expectedExceptionMessage = null)
         {
             $traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
             $func = $traces[1]['function'];
@@ -152,7 +152,9 @@ EOF;
                 $willThrow,
                 [$this, $func],
                 $this,
-                $error
+                $error,
+                $expectedException,
+                $expectedExceptionMessage
             );
         }
     }
