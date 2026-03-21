@@ -41,9 +41,7 @@ namespace {
 }
 
 namespace PMVC {
-    $phpver = (int) phpversion();
-
-    if ($phpver >= 8) {
+    if (version_compare(phpversion(), '7.2', '>=')) {
         l(__DIR__ . '/TestCase-8');
     } else {
         l(__DIR__ . '/TestCase-5');
