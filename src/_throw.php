@@ -31,27 +31,36 @@ class WrapThrow
     public function __invoke($willThrow, $caller, $phpunit, $error = true)
     {
         set_error_handler([$this, 'handleError']);
-        $annotation = \PMVC\plug('annotation');
-        $doc = $annotation->get($caller, true);
-        $expectedException = get($doc, 'expectedException');
-        $expectedExceptionMessage = get($doc, 'expectedExceptionMessage');
-        if (!empty($expectedException)) {
-            $phpunit->expectException($expectedException);
-        }
-        if (!empty($expectedExceptionMessage)) {
-            $phpunit->expectExceptionMessage($expectedExceptionMessage);
-        }
-        if (!$error) {
-            $willThrow();
-        } else {
-            try {
-                $willThrow();
-            } catch (Exception $e) {
-                if (is_bool($error)) {
-                    $error = 'PMVC\PMVCUnitException';
-                }
-                throw new $error($e->getMessage(), 0);
+        try {
+            $annotation = \PMVC\plug('annotation');
+            $doc = $annotation->get($caller, true);
+            $expectedException = get($doc, 'expectedException');
+            $expectedExceptionMessage = get($doc, 'expectedExceptionMessage');
+            $phpunitClass = get_class($phpunit);
+            if (!empty($expectedException)) {
+                \Closure::bind(function () use ($expectedException) {
+                    $this->expectException($expectedException);
+                }, $phpunit, $phpunitClass)();
             }
+            if (!empty($expectedExceptionMessage)) {
+                \Closure::bind(function () use ($expectedExceptionMessage) {
+                    $this->expectExceptionMessage($expectedExceptionMessage);
+                }, $phpunit, $phpunitClass)();
+            }
+            if (!$error) {
+                $willThrow();
+            } else {
+                try {
+                    $willThrow();
+                } catch (Exception $e) {
+                    if (is_bool($error)) {
+                        $error = 'PMVC\PMVCUnitException';
+                    }
+                    throw new $error($e->getMessage(), 0);
+                }
+            }
+        } finally {
+            restore_error_handler();
         }
     }
 }
