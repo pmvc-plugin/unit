@@ -56,11 +56,11 @@ class HelloWorldTest extends TestCase
 
 ### CI config example
 * Simple plugin
-   * https://github.com/pmvc/generator-php-pmvc-plugin/blob/master/generators/app/templates/_circleci/config.yml
+   * https://github.com/pmvc/generator-php-pmvc-plugin/blob/main/generators/app/templates/_circleci/config.yml
 * More php version
-   * https://github.com/pmvc/pmvc/blob/master/.circleci/config.yml
+   * https://github.com/pmvc/pmvc/blob/main/.circleci/config.yml
 * Real CircleCI example
-   * https://app.circleci.com/pipelines/github/pmvc/pmvc?branch=master
+   * https://app.circleci.com/pipelines/github/pmvc/pmvc?branch=main
 
 ## PHPUnit Tip
 * Show event
@@ -82,7 +82,7 @@ phpunit --display-deprecations --testdox
 
 
 * trigger PMVC dev dump
-   * https://github.com/pmvc-plugin/dev/blob/master/tests/DevWithPhpUnitTest.php
+   * https://github.com/pmvc-plugin/dev/blob/main/tests/DevWithPhpUnitTest.php
 
 * Further integration with the [dev] plugin.
    * https://github.com/pmvc-plugin/dev#debug-with-cli
@@ -103,7 +103,7 @@ phpunit --display-deprecations --testdox
 ```json
 {
     "require": {
-        "pmvc-plugin/unit": "dev-master"
+        "pmvc-plugin/unit": "dev-main"
     }
 }
 ```
