@@ -42,17 +42,24 @@ class WrapThrow
                     $expectedExceptionMessage = get($doc, 'expectedExceptionMessage');
                 }
             }
+            $phpunitClass = get_class($phpunit);
             if (!empty($expectedException)) {
                 if (is_callable(array($phpunit, 'setExpectedException'))) {
                     $phpunit->setExpectedException($expectedException, $expectedExceptionMessage);
                 } else {
-                    $phpunit->expectException($expectedException);
-                    if (!empty($expectedExceptionMessage)) {
-                        $phpunit->expectExceptionMessage($expectedExceptionMessage);
-                    }
+                    $fn = \Closure::bind(function () use ($expectedException, $expectedExceptionMessage) {
+                        $this->expectException($expectedException);
+                        if (!empty($expectedExceptionMessage)) {
+                            $this->expectExceptionMessage($expectedExceptionMessage);
+                        }
+                    }, $phpunit, $phpunitClass);
+                    call_user_func($fn);
                 }
             } elseif (!empty($expectedExceptionMessage)) {
-                $phpunit->expectExceptionMessage($expectedExceptionMessage);
+                $fn = \Closure::bind(function () use ($expectedExceptionMessage) {
+                    $this->expectExceptionMessage($expectedExceptionMessage);
+                }, $phpunit, $phpunitClass);
+                call_user_func($fn);
             }
             if (!$error) {
                 $willThrow();
