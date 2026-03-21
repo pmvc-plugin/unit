@@ -4,11 +4,11 @@
 [![License](https://poser.pugx.org/pmvc-plugin/unit/license)](https://packagist.org/packages/pmvc-plugin/unit)
 [![Total Downloads](https://poser.pugx.org/pmvc-plugin/unit/downloads)](https://packagist.org/packages/pmvc-plugin/unit) 
 
-A simple phpunit wrapper let it support phpunt 4.8.35, 6.5.5, 9.5.0
+A simple phpunit wrapper let it support phpunit 4.8.36, 8.5.52, ^9.6, ^10.5, ^11.5
 ===============
 
 ## In another word.
-You could use is cross php version 5.5 -> 8.x
+You could use is cross php version 5.6 -> 8.x+
 
 ## function mapping table
 
